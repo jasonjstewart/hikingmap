@@ -6,6 +6,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import MapContainer from './MapContainer.js'
+import { Layer, Feature } from "react-mapbox-gl"
+import Container from '@material-ui/core/Container';
+import HikingList from './HikingList.js'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -82,7 +86,10 @@ export default function NavTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Page One
+        <Box display="flex" flexDirection="row" p={1} m={1} bgcolor="background.paper">
+          <Box><HikingList></HikingList></Box>
+        <Box><MapContainer fixed></MapContainer></Box>
+        </Box>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Page Two
